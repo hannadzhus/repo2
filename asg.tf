@@ -6,6 +6,7 @@ resource "aws_launch_template" "my_launch_template" {
   image_id          = "ami-0c7217cdde317cfec"
   instance_type     = "t2.micro"
 #   security_group_ids = ["sg-0475aa477040f6d79"]
+  vpc_security_group_ids      = ["${aws_security_group.sg.id}"]
 }
 
 resource "aws_autoscaling_group" "my_autoscaling_group" {
